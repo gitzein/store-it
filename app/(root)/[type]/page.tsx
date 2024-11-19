@@ -1,12 +1,10 @@
 import Card from "@/components/Card";
 import Sort from "@/components/Sort";
 import { getFiles } from "@/lib/actions/file.actions";
-import { getCurrentUser } from "@/lib/actions/user.actions";
 import { getFileTypesParams } from "@/lib/utils";
 import { Models } from "node-appwrite";
 
 async function page({ searchParams, params }: SearchParamProps) {
-  const currentUser = await getCurrentUser();
   const type = (await params)?.type as string;
   const searchText = ((await searchParams)?.query as string) || "";
   const sort = ((await searchParams)?.sort as string) || "";
